@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h2>Cписок всех товаров</h2>
-    {% for product in products %}
-    <div><strong>{{ product.name }}</strong> - {{ product.description }}</div>
-    {% endfor %}
-  </body>
-</html>
+{% extends 'base.html' %} {% load static %} {% block page %}
+<h2>Cписок всех товаров</h2>
+{% for product in products %}
+<div><strong>{{ product.name }}</strong> - {{ product.price }}</div>
+<div>{{ product.description }}</div>
+<img src="{{ products.photo.url }}" />
+
+{% endfor %} {% endblock %}

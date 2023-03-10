@@ -1,18 +1,12 @@
-{% extends 'base.html' %} {% load static %} {% block page %}
+{% extends 'base.html' %} 
+{% load static %} 
+{% block page %}
 
-<div>
-  <img src="{% static '../' %}" />
+<div class="banner">
+  <h1>ТЕХНИКА ДЛЯ ДОМА</h1>
+  <p>
+    Скидка до 50% на новые поступления, <br />Новые техники от создателей со
+    всего мира.
+  </p>
 </div>
-
-<h1>ТЕХНИКА ДЛЯ ДОМА</h1>
-      <p>
-        Скидка до 50% на новые поступления, <br />Новые техники от создателей
-        со всего мира.
-      </p>
-      <div>
-        <button type="button"><span></span>ВОЙТИ</button>
-        <button type="button"><span></span>КОНТАКТЫ</button>
-      </div>
-    </div>
-  </div>
 {% endblock %}

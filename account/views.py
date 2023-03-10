@@ -1,11 +1,29 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-from .forms import LoginForm
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
+from .forms import UserRegistrationForm
+from .forms import LoginUserForm
 
-def user_login(request):
+
+def register(request):
     if request.method == 'POST':
-        form = LoginForm(request.POST)
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+            messages.success(request, f'Ваш аккаунт был создан. Вы можете войти сейчас!')    
+            return redirect('login')
+    else:
+        form = UserRegistrationForm()
+
+    context = {'form': form}
+    return render(request, 'account/register.html', context)
+
+def login(request):
+    if request.method == 'POST':
+        form = LoginUserForm(request.POST)
         if form.is_valid():
             cd = form.cleaned_data
             user = authenticate(username=cd['username'], password=cd['password'])
@@ -18,5 +36,10 @@ def user_login(request):
             else:
                 return HttpResponse('Invalid login')
     else:
-        form = LoginForm()
+        form = LoginUserForm()
     return render(request, 'account/login.html', {'form': form})
+
+
+
+
+
