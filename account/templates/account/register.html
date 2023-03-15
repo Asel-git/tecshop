@@ -2,6 +2,12 @@
 {% load static %} 
 {% block page %}
 
+<div class="alert alert-success" role="alert">
+    <h3>Welcome!</h3>
+    <a href="{% url 'login' %}">Войти</a>
+    <a href="{% url 'logout' %}">Выйти</a>
+</div>
+<hr>
 
 <h3>Регистрация</h3>
 <hr>
