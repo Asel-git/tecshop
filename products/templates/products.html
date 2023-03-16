@@ -1,8 +1,0 @@
-{% extends 'base.html' %} {% load static %} {% block page %}
-<h2>Cписок всех товаров</h2>
-{% for product in products %}
-<div><strong>{{ product.name }}</strong> - {{ product.price }}</div>
-<div>{{ product.description }}</div>
-<img src="{{ products.photo.url }}" />
-
-{% endfor %} {% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block page %}
+
+
+	{% for i in products %}
+		<p> {{ i.name }} </p>
+	{% endfor %} 
+
+{% endblock %}
